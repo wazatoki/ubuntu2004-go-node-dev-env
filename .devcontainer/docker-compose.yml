@@ -1,0 +1,27 @@
+version: '3'
+
+services: 
+  regulus_app:
+    container_name: "regulus_app"
+    build: 
+      dockerfile: "Dockerfile"
+      context: "./build"
+      args: 
+        - "GO_VERSION=1.15.8"
+        - "NODE_VERSION=v14.15.5"
+    ports: 
+      - "8080:8080"
+    volumes: 
+      - "./:/workspace"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    working_dir: /workspace
+    tty: true
+    depends_on: 
+      - regulus_db
+  regulus_db:
+    image: postgres:11.3
+    container_name: regulus_db
+    environment: 
+      POSTGRES_USER: "regulus"
+      POSTGRES_PASSWORD: "regulus"
+      POSTGRES_DB: "regulusdb"
