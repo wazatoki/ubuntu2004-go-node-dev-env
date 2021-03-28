@@ -11,7 +11,8 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
     docker.io \
     libappindicator1 libappindicator3-1 fonts-liberation \
-    libasound2 libdrm2 libgbm1 libnspr4 libnss3 xdg-utils
+    libasound2 libdrm2 libgbm1 libnspr4 libnss3 xdg-utils \
+    libxshmfence1 openssh-client socat
 
 WORKDIR /tmp
 
