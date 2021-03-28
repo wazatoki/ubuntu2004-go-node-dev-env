@@ -12,6 +12,7 @@ services:
     ports: 
       - "8080:8080"
     volumes: 
+      - "./share:/mnt/share"
       - "/var/run/docker.sock:/var/run/docker.sock"
     working_dir: /workspace
     tty: true
