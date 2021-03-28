@@ -12,7 +12,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     docker.io \
     libappindicator1 libappindicator3-1 fonts-liberation \
     libasound2 libdrm2 libgbm1 libnspr4 libnss3 xdg-utils \
-    libxshmfence1 openssh-client socat
+    libxshmfence1 openssh-client socat build-essential
 
 WORKDIR /tmp
 
@@ -27,5 +27,5 @@ RUN curl -fsSOL https://nodejs.org/download/release/${NODE_VERSION}/node-${NODE_
 RUN curl -fsSOL https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
     && dpkg -i google-chrome-stable_current_amd64.deb
 
-ENV PATH=$PATH:/usr/local/go/bin:/usr/local/node-${NODE_VERSION}-linux-x64/bin
+ENV PATH=$PATH:/usr/local/go/bin:/usr/local/node-${NODE_VERSION}-linux-x64/bin:/root/go/bin
 
