@@ -29,4 +29,5 @@ RUN curl -fsSOL https://dl.google.com/linux/direct/google-chrome-stable_current_
 
 ENV PATH=$PATH:/usr/local/go/bin:/usr/local/node-${NODE_VERSION}-linux-x64/bin:/root/go/bin
 
-RUN mkdir /root/go
+RUN mkdir /root/go \
+    mkdir /workspace/regulus
